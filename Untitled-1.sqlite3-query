@@ -1,0 +1,14 @@
+-- database: ./database.db
+
+SELECT Cars.*, Makers.MakerName 
+FROM Cars, Makers 
+WHERE Cars.MakerID = Makers.MakerID;
+
+SELECT Cars.CarID, Makers.MakerName, Cars.CarName, Cars.ImageURL 
+FROM Cars, Makers 
+WHERE Cars.MakerID = Makers.MakerID;
+
+SELECT * 
+FROM Cars, Makers 
+WHERE Makers.MakerID = Cars.MakerID
+AND Cars.CarID = 2;
