@@ -1,4 +1,5 @@
-from flask import Flask, g
+# import libraries
+from flask import Flask, g, render_template
 import sqlite3
 
 DATABASE = 'database.db'
@@ -32,25 +33,25 @@ def query_db(query, args=(), one=False):
 def home():
     # home page- just the ID, Maker, Model, and Image URL
     sql = """
-            SELECT Cars.CarID, Makers.MakerName, Cars.CarName, Cars.ImageURL 
-            FROM Cars, Makers 
+            SELECT Cars.CarID, Makers.MakerName, Cars.CarName, Cars.ImageURL
+            FROM Cars, Makers
             WHERE Cars.MakerID = Makers.MakerID;
         """
     results = query_db(sql)
-    return str(results)
+    return render_template("home.html", results=results)
 
 
 @app.route('/car/<int:id>')
 def Car(id):
     # just one bike based on the id
     sql = """
-            SELECT * 
-            FROM Cars, Makers 
+            SELECT *
+            FROM Cars, Makers
             WHERE Makers.MakerID = Cars.MakerID
             AND Cars.CarID = ?;
         """
     result = query_db(sql, (id, ), True)
-    return str(result)
+    return render_template("car.html", car=result)
 
 
 if __name__ == "__main__":

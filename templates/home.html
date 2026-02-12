@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- home page goes here -->
+ <!-- a 3 column grid -->
+  <div class="three-column">
+    {% for car in results %}
+    <a href="{{ url_for('Car', id=car[0]) }}">
+        <div class="w3-card-4">
+            <!-- the name then the image -->
+            <h1>{{ car[1] }} {{ car[2] }}</h1>
+            <img src="{{ car[3] }}" alt="{{ car[2] }}">
+        </div>
+    </a>
+    {% endfor %}
+  </div>
+<h2>Welcome to Some Cars!</h2>
+<p>This is the home page of the website.</p>
+{% endblock %}
