@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 <!-- home page goes here -->
-<h2>Welcome to the Car Store!</h2>
-<p>Here are some cars for sale.</p>
+<h2>Here are the cars from {{ results[0][1] }}</h2>
  <!-- a 3 column grid -->
   <div class="three-column">
     {% for car in results %}

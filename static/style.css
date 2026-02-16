@@ -11,6 +11,8 @@ body,h1,h2,h3,h4,h5,h6 {
 /* all images at 100% width */
 img {
     width: 100%;
+    aspect-ratio: 1.6 / 1; 
+    object-fit: cover; 
 }
 
 .two-column{

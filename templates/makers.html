@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
 <!-- home page goes here -->
-<h2>Welcome to the Car Store!</h2>
-<p>Here are some cars for sale.</p>
+<h2>Car Makers</h2>
+<p>Select one car maker to view their cars.</p>
  <!-- a 3 column grid -->
   <div class="three-column">
-    {% for car in results %}
-    <a href="{{ url_for('Car', id=car[0]) }}">
+    {% for maker in results %}
+    <a href="{{ url_for('Maker', id=maker[0]) }}">
         <div class="w3-card-4">
             <!-- the name then the image -->
-            <h1>{{ car[2] }}</h1>
-            <img src="{{ car[3] }}" alt="{{ car[2] }}">
+            <h1>{{ maker[1] }}</h1>
+            <img src="{{ maker[2] }}" alt="{{ maker[1] }}">
         </div>
     </a>
     {% endfor %}
